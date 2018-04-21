@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDC93CD6-98C9-4306-9F6A-FA3EE5C9B976}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EniWine.Investigation.Services</RootNamespace>
+    <AssemblyName>EniWine.Investigation.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\CadastroServiceBehavior.cs" />
+    <Compile Include="InvestigationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EniWine.Core.Repositories\EniWine.Core.Repositories.csproj">
+      <Project>{e0a09377-daa8-4426-9404-acddf497e767}</Project>
+      <Name>EniWine.Core.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EniWine.Investigation.Business.Interface\EniWine.Investigation.Business.Interface.csproj">
+      <Project>{71C5BAA6-F32D-4D80-A9D6-F91BE6A3044D}</Project>
+      <Name>EniWine.Investigation.Business.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EniWine.Investigation.Business\EniWine.Investigation.Business.csproj">
+      <Project>{1D668B66-CEE6-4AEC-B3CC-3D7960D4E6A0}</Project>
+      <Name>EniWine.Investigation.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EniWine.Investigation.IRepository\EniWine.Investigation.Repository.Interface.csproj">
+      <Project>{5E47B04B-7736-47AC-A53A-FEAE8EADB3D5}</Project>
+      <Name>EniWine.Investigation.Repository.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EniWine.Investigation.Models\EniWine.Investigation.Models.csproj">
+      <Project>{da4d8afb-d6f1-4234-9308-6b6eafc7a41d}</Project>
+      <Name>EniWine.Investigation.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EniWine.Investigation.Repository\EniWine.Investigation.Repository.csproj">
+      <Project>{BBAF9291-EC7C-4349-8184-73F195523857}</Project>
+      <Name>EniWine.Investigation.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EniWine.Investigation.Services.Contracts\EniWine.Investigation.Services.Contracts.csproj">
+      <Project>{45ef9f21-bd14-4e2c-82cf-7f37387a8d21}</Project>
+      <Name>EniWine.Investigation.Services.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
