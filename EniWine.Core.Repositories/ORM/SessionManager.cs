@@ -6,6 +6,8 @@ using System.Reflection;
 using System;
 using System.IO;
 using EniWine.Core.Repositories.Tools;
+using FluentNHibernate.Automapping;
+using EniWine.Investigation.Models;
 
 namespace EniWine.Core.Repositories.ORM
 {
@@ -66,13 +68,20 @@ namespace EniWine.Core.Repositories.ORM
             //    .CurrentSessionContext<WcfOperationSessionContext>()
             //        .BuildSessionFactory();
 
+            //var sessionHibernate = Fluently.Configure()
+            //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey("DefaultConnection")).ShowSql())
+            //    //.ExposeConfiguration(c => c.SetProperty("current_session_context_class", "wcf_operation"))
+            //    //.ExposeConfiguration(x => x.SetInterceptor(new SqlStatementInterceptor()))
+            //    .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.LoadFile(GetPathBinMap())))
+            //    .CurrentSessionContext<WcfOperationSessionContext>()
+            //    .BuildSessionFactory();
+
             var sessionHibernate = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey("DefaultConnection")).ShowSql())
-                //.ExposeConfiguration(c => c.SetProperty("current_session_context_class", "wcf_operation"))
-                //.ExposeConfiguration(x => x.SetInterceptor(new SqlStatementInterceptor()))
-                .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.LoadFile(GetPathBinMap())))
+                .Database(MsSqlConfiguration.MsSql2008.ConnectionString(@"Data Source=XPS-CRIS\SQLEXPRESS;Initial Catalog=Chifon;Integrated Security=True"))
+                .Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Arma>()))
                 .CurrentSessionContext<WcfOperationSessionContext>()
                 .BuildSessionFactory();
+
             return sessionHibernate;
         }
     }

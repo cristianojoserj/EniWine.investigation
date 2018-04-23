@@ -1,11 +1,10 @@
-﻿using EniWine.Core.Repositories.ORM;
+﻿using System;
 using NHibernate;
-using System;
-using System.Collections.Generic;
 using System.Linq;
+using NHibernate.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using EniWine.Core.Repositories.ORM;
 
 namespace EniWine.Core.Repositories.Repositories
 {

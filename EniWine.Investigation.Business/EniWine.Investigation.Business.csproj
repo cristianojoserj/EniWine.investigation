@@ -43,6 +43,7 @@
     <Compile Include="ArmaBusiness.cs" />
     <Compile Include="LocalBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespostaCasoBusiness.cs" />
     <Compile Include="SuspeitoBusiness.cs" />
   </ItemGroup>
   <ItemGroup>

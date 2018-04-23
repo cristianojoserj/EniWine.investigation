@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IArmaRepository.cs" />
     <Compile Include="ILocalRepository.cs" />
+    <Compile Include="IRespostaCasoRepository.cs" />
     <Compile Include="ISuspeitoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

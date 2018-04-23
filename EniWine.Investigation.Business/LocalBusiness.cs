@@ -1,11 +1,7 @@
 ﻿using EniWine.Investigation.Business.Interface;
-using EniWine.Investigation.Repository.Interface;
 using EniWine.Investigation.Models;
-using System;
+using EniWine.Investigation.Repository.Interface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EniWine.Investigation.Business
 {
@@ -29,6 +25,10 @@ namespace EniWine.Investigation.Business
         public Local LoadById(int id)
         {
             return _repository.LoadById(id);
+        }
+        public IList<Local> LoadAll()
+        {
+            return _repository.LoadAll();
         }
     }
 }

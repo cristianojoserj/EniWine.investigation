@@ -1,6 +1,7 @@
 ﻿using EniWine.Investigation.Business.Interface;
 using EniWine.Investigation.Repository.Interface;
 using EniWine.Investigation.Models;
+using System.Collections.Generic;
 
 namespace EniWine.Investigation.Business
 {
@@ -24,6 +25,10 @@ namespace EniWine.Investigation.Business
         public Suspeito LoadById(int id)
         {
             return _repository.LoadById(id);
+        }
+        public IList<Suspeito> LoadAll()
+        {
+            return _repository.LoadAll();
         }
     }
 }

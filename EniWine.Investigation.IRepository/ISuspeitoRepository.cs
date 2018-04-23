@@ -5,6 +5,5 @@ namespace EniWine.Investigation.Repository.Interface
 {
     public interface ISuspeitoRepository : IRepository<Suspeito>
     {
-        Suspeito LoadById(int id);
     }
 }

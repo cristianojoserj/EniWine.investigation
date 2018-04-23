@@ -5,6 +5,5 @@ namespace EniWine.Investigation.Repository.Interface
 {
     public interface ILocalRepository : IRepository<Local>
     {
-        Local LoadById(int id);
     }
 }

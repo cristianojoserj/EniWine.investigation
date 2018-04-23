@@ -13,7 +13,12 @@ namespace EniWine.Investigation.Web.Controllers
     {
         public ActionResult Index()
         {
+            new WCFServiceInvoker().InvokeService<IInvestigationService>(proxy => proxy.SetarNovoCaso());
+
             Armas();
+            Locais();
+            Suspeitos();
+
             return View();
         }
 
@@ -31,19 +36,50 @@ namespace EniWine.Investigation.Web.Controllers
             return View();
         }
 
+        public JsonResult RespostaCorreta(string idArma, string idLocal, string idSuspeito)
+        {
+            string vlr = idArma + "," + idLocal + "," + idSuspeito;
+            int resp = new WCFServiceInvoker().InvokeService<IInvestigationService, int>(proxy => proxy.TestarResposta(vlr));
+
+            JsonResult result = new JsonResult();
+            result.Data = resp;
+            return result;
+        }
+
         #region [ Métodos Privados ]
 
         private void Armas()
         {
-            var estado = new WCFServiceInvoker().InvokeService<IInvestigationService, IList<ArmaDTO>>(proxy => proxy.ObterArmas());
+            var model = new WCFServiceInvoker().InvokeService<IInvestigationService, IList<ArmaDTO>>(proxy => proxy.ObterArmas());
 
             var lista = new List<SelectListItem> { new SelectListItem { Text = "", Value = "" } };
 
-            lista.AddRange(new SelectList(estado, "Id", "Nome").ToList());
+            lista.AddRange(new SelectList(model, "Id", "Nome").ToList());
 
             ViewBag.ListaArma = lista;
         }
 
+        private void Locais()
+        {
+            var model = new WCFServiceInvoker().InvokeService<IInvestigationService, IList<LocalDTO>>(proxy => proxy.ObterLocais());
+
+            var lista = new List<SelectListItem> { new SelectListItem { Text = "", Value = "" } };
+
+            lista.AddRange(new SelectList(model, "Id", "Nome").ToList());
+
+            ViewBag.ListaLocal = lista;
+        }
+
+        private void Suspeitos()
+        {
+            var model = new WCFServiceInvoker().InvokeService<IInvestigationService, IList<SuspeitoDTO>>(proxy => proxy.ObterSuspeitos());
+
+            var lista = new List<SelectListItem> { new SelectListItem { Text = "", Value = "" } };
+
+            lista.AddRange(new SelectList(model, "Id", "Nome").ToList());
+
+            ViewBag.ListaSuspeito = lista;
+        }
         #endregion [ Métodos Privados ]
     }
 }

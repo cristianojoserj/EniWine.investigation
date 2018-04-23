@@ -43,6 +43,7 @@
     <Compile Include="ArmaRepository.cs" />
     <Compile Include="LocalRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespostaCasoRepository.cs" />
     <Compile Include="SuspeitoRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IArmaBusiness.cs" />
     <Compile Include="ILocalBusiness.cs" />
+    <Compile Include="IRespostaCasoBusiness.cs" />
     <Compile Include="ISuspeitoBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

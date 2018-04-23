@@ -43,6 +43,7 @@
     <Compile Include="Arma.cs" />
     <Compile Include="Local.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespostaCaso.cs" />
     <Compile Include="Suspeito.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

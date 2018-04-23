@@ -5,6 +5,5 @@ namespace EniWine.Investigation.Repository.Interface
 {
     public interface IArmaRepository : IRepository<Arma>
     {
-        Arma LoadById(int id);
     }
 }

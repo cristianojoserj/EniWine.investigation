@@ -8,6 +8,7 @@ using EniWine.Investigation.Repository;
 using EniWine.Investigation.Services.Contracts.Datas;
 using System;
 using System.ServiceModel.Description;
+using EniWine.Investigation.IRepository;
 
 namespace EniWine.Investigation.Services.Behaviors
 {
@@ -46,8 +47,9 @@ namespace EniWine.Investigation.Services.Behaviors
             #region [ Repositorio ]
 
             DependencyInjectionContainer.Instance.RegisterType(typeof(IArmaRepository), typeof(ArmaRepository));
-            DependencyInjectionContainer.Instance.RegisterType(typeof(ILocalRepository), typeof(ILocalRepository));
-            DependencyInjectionContainer.Instance.RegisterType(typeof(ISuspeitoRepository), typeof(ISuspeitoRepository));
+            DependencyInjectionContainer.Instance.RegisterType(typeof(ILocalRepository), typeof(LocalRepository));
+            DependencyInjectionContainer.Instance.RegisterType(typeof(ISuspeitoRepository), typeof(SuspeitoRepository));
+            DependencyInjectionContainer.Instance.RegisterType(typeof(IRespostaCasoRepository), typeof(RespostaCasoRepository));
 
             #endregion [ Repositorio ]
 
@@ -56,6 +58,7 @@ namespace EniWine.Investigation.Services.Behaviors
             DependencyInjectionContainer.Instance.RegisterType(typeof(IArmaBusiness), typeof(ArmaBusiness));
             DependencyInjectionContainer.Instance.RegisterType(typeof(ILocalBusiness), typeof(LocalBusiness));
             DependencyInjectionContainer.Instance.RegisterType(typeof(ISuspeitoBusiness), typeof(SuspeitoBusiness));
+            DependencyInjectionContainer.Instance.RegisterType(typeof(IRespostaCasoBusiness), typeof(RespostaCasoBusiness));
 
             #endregion [ Negocio ]
         }

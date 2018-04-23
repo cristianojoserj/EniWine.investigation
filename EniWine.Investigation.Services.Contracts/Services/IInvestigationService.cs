@@ -12,5 +12,17 @@ namespace EniWine.Investigation.Services.Contracts
 
         [OperationContract]
         IList<ArmaDTO> ObterArmas();
+
+        [OperationContract]
+        IList<LocalDTO> ObterLocais();
+
+        [OperationContract]
+        IList<SuspeitoDTO> ObterSuspeitos();
+
+        [OperationContract]
+        void SetarNovoCaso();
+
+        [OperationContract]
+        int TestarResposta(string resposta);
     }
 }
